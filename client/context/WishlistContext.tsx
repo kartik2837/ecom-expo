@@ -4,6 +4,15 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 
 const WishlistContext = createContext<WishlistContextType | undefined>(undefined)
 
+/**
+ * Provides wishlist state and actions to descendant components via React context.
+ *
+ * Exposes the current `wishlist`, a `loading` flag, `isInWishlist(productId)` to check membership,
+ * and `toggleWishlist(product)` to add or remove a product. The provider loads an initial wishlist on mount.
+ *
+ * @param children - The React nodes that will receive the wishlist context.
+ * @returns The provider element that supplies wishlist context to its descendants.
+ */
 export function WishlistProvider({children}:{children: ReactNode}){
     const [wishlist,setWishlist]= useState<Product[]>([])
     const [loading,setLoading] = useState(false);
@@ -43,6 +52,12 @@ export function WishlistProvider({children}:{children: ReactNode}){
 }
 
 
+/**
+ * Accesses the wishlist context value provided by the nearest WishlistProvider.
+ *
+ * @returns The wishlist context containing `wishlist`, `loading`, `isInWishlist`, and `toggleWishlist`.
+ * @throws Error if called outside of a `WishlistProvider`.
+ */
 export function useWishlist(){
     const context = useContext(WishlistContext);
    if(context === undefined){
