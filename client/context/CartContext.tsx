@@ -79,7 +79,7 @@ useEffect(()=>{
 export function useCart(){
     const context = useContext(CartContext);
    if(context === undefined){
-    throw new Error('useWishlist must be used within a wishlistProvider')
+    throw new Error('useCart must be used within a CartProvider')
    }
    return context
 
