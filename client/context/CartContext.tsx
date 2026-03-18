@@ -1,5 +1,6 @@
-import { dummyCart, dummyWishlist } from "@/assets/assets";
-import { Product, WishlistContextType } from "@/constants/types";
+
+import { dummyCart } from "@/assets/assets";
+import { Product } from "@/constants/types";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 export type CartItem = {
     id:string,
