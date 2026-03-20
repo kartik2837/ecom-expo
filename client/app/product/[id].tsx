@@ -138,7 +138,7 @@ export default function ProductDetails() {
 
     useEffect(() => {
         fetchProduct()
-    }, [])
+    }, [id])
 
     if (loading) {
         return (
