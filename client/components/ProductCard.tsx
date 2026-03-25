@@ -6,6 +6,14 @@ import { Ionicons } from '@expo/vector-icons'
 import { COLORS } from '@/constants'
 import { useWishlist } from '@/context/WishlistContext'
 
+/**
+ * Renders a product card that links to the product detail page and lets the user toggle wishlist status.
+ *
+ * The card displays the product image, name, price, an optional "Featured" badge, and a rating. Tapping the card navigates to the product detail route for the given product; tapping the heart icon toggles the product's presence in the wishlist without triggering navigation.
+ *
+ * @param product - The product to display (expects `_id`, `images`, `name`, `price`, and optional `isFeatured`).
+ * @returns A React element representing the interactive product card.
+ */
 export default function ProductCard({ product }: ProductCardProps) {
     const {toggleWishlist,isInWishlist} = useWishlist()
     const isLiked = isInWishlist(product._id)

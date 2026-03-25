@@ -24,6 +24,12 @@ type CartContextType={
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
+/**
+ * Provides cart state and mutation actions to descendant components via CartContext.
+ *
+ * @param children - React nodes that will receive the cart context.
+ * @returns The CartContext provider element that supplies cart items, totals, loading state, and action methods to its children.
+ */
 export function CartProvider({children}:{children: ReactNode}){
     
 const [cartItems,setCartItems] = useState<CartItem[]>([])
@@ -77,6 +83,14 @@ useEffect(()=>{
 }
 
 
+/**
+ * Accesses the current cart context value.
+ *
+ * Retrieves the CartContext provided by a surrounding CartProvider.
+ *
+ * @returns The cart context value containing cart items, actions, totals, and loading state.
+ * @throws Error if called outside of a CartProvider
+ */
 export function useCart(){
     const context = useContext(CartContext);
    if(context === undefined){
