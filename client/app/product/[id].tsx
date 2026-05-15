@@ -138,7 +138,7 @@ export default function ProductDetails() {
 
     useEffect(() => {
         fetchProduct()
-    }, [])
+    }, [id])
 
     if (loading) {
         return (
@@ -188,7 +188,8 @@ export default function ProductDetails() {
 
                             const safeIndex = Math.min(
                                 Math.max(index, 0),
-                                product.images.length - 1
+                                // product.images.length - 1
+                                (product.images?.length ?? 1) - 1
                             )
 
                             setActiveImageIndex(safeIndex)
