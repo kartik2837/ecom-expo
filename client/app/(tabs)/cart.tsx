@@ -12,7 +12,7 @@ export default function Cart() {
   const {cartItems,cartTotal,removeFromCart,updateQuantity} = useCart()
   const router = useRouter()
 
-  const Shipping  = 2.00;
+  const Shipping  = 100.00;
   const total = cartTotal+Shipping
 
   return (
